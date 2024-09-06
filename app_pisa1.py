@@ -15,8 +15,8 @@ COLOR_GRIS = "#95a5a6"
 
 @st.cache_data
 def cargar_datos():
-    clientes_df = pd.read_csv('Markov_chain_prediction_model/csv_clientes.csv')
-    materiales_df = pd.read_csv('Markov_chain_prediction_model/csv_materiales.csv')
+    clientes_df = pd.read_csv('csv_clientes.csv')
+    materiales_df = pd.read_csv('csv_materiales.csv')
     return clientes_df, materiales_df
 
 clientes_df, materiales_df = cargar_datos()
