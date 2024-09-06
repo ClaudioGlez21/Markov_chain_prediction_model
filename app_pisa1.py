@@ -21,7 +21,7 @@ def cargar_datos():
 
 clientes_df, materiales_df = cargar_datos()
 
-# Función para crear gráfico de matriz de transición
+#gráfico de matriz de transición
 def grafico_matriz_transicion(matriz):
     labels = ['Activo', 'Inactivo']
     valores = [matriz[0][0], matriz[0][1]]
@@ -33,7 +33,7 @@ def grafico_matriz_transicion(matriz):
     )
     return fig
 
-# visualizacion del tiempo medio de recurrencia (mu_j)
+# tiempo medio de recurrencia (mu_j)
 def grafico_tiempo_recurrencia(mu_j):
     fig = go.Figure(go.Indicator(
         mode = "gauge+number",
@@ -54,7 +54,7 @@ def grafico_tiempo_recurrencia(mu_j):
     fig.update_layout(height=400)
     return fig
 
-# Estilo CSS personalizado
+# Estilo CSS
 st.markdown(f"""
     <style>
     .main {{
@@ -95,8 +95,7 @@ if opcion_busqueda == 'Material':
     if nombre_material:
         datos_material = materiales_df[materiales_df['Material'] == nombre_material]
         if not datos_material.empty:
-            st.header(f"Datos del Material: {nombre_material}")
-            
+            st.header(f"Datos del Material: {nombre_material}")    
             col1, col2 = st.columns(2)
             
             with col1:
@@ -171,7 +170,7 @@ elif opcion_busqueda == 'ID de Cliente':
                     else:
                         st.warning("Este es un cliente de valor bajo para PISA.")
                     
-                    # Gráfico de gauge para CLV
+                    # Gráfico para CLV
                     fig = go.Figure(go.Indicator(
                         mode = "gauge+number",
                         value = clv,
